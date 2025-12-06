@@ -11,284 +11,290 @@
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
                     colors: {
-                        netflix: {
-                            red: '#E50914',
-                            black: '#141414',
-                            dark: '#181818',
-                            gray: '#2F2F2F',
-                            light: '#e5e5e5'
-                        }
+                        netflix: { red: '#E50914', black: '#141414', dark: '#181818', gray: '#2F2F2F', light: '#e5e5e5' }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.3s ease-out',
+                        'slide-up': 'slideUp 0.4s ease-out'
+                    },
+                    keyframes: {
+                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+                        slideUp: { '0%': { transform: 'translateY(20px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } }
                     }
                 }
             }
         }
     </script>
     <style>
-        body {
-            background-color: #141414;
-            color: white;
-        }
-        .hero-gradient {
-            background: linear-gradient(to top, #141414 10%, transparent 100%),
-                        linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, transparent 50%);
-        }
-        .text-shadow {
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-        }
-        /* Hide scrollbar for chrome/safari/opera */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        /* Hide scrollbar for IE, Edge and Firefox */
-        .no-scrollbar {
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
-        }
+        body { background-color: #141414; color: white; }
+        .hero-gradient { background: linear-gradient(to top, #141414 10%, transparent 100%), linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, transparent 50%); }
+        .text-shadow { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
-<body class="antialiased pb-20">
+<body class="antialiased pb-20 selection:bg-netflix-red selection:text-white">
 
-    <!-- Navbar -->
-    <nav class="fixed top-0 w-full z-50 transition-all duration-300 bg-gradient-to-b from-black/80 to-transparent">
-        <div class="px-4 py-3 flex justify-between items-center">
-            <!-- TITULO ACTUALIZADO -->
-            <h1 class="text-netflix-red text-lg md:text-2xl font-black uppercase tracking-tighter truncate max-w-[70%]">
-                INFOFLIX.HR.INFORMATICA
+    <nav class="fixed top-0 w-full z-40 bg-gradient-to-b from-black/90 to-transparent transition-all duration-300">
+        <div class="px-4 py-4 flex justify-between items-center">
+            <h1 class="text-netflix-red text-xl md:text-2xl font-black uppercase tracking-tighter cursor-pointer">
+                <span class="md:hidden">INFOFLIX</span>
+                <span class="hidden md:inline">INFOFLIX.HR.INFORMATICA</span>
             </h1>
-            <a href="https://wa.me/595984835708" class="text-white text-sm font-semibold hover:underline">
-                Ayuda
-            </a>
-        </div>
+            </div>
     </nav>
 
-    <!-- Hero / Poster Principal -->
-    <header class="relative w-full h-[85vh] md:h-[70vh]">
-        <!-- Imagen de fondo -->
-        <div class="absolute inset-0 w-full h-full overflow-hidden">
-             <!-- Placeholder para imagen tecnológica oscura -->
-             <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1000&auto=format&fit=crop" 
-                  alt="Background" 
-                  class="w-full h-full object-cover object-center opacity-60">
-        </div>
-        
-        <!-- Gradiente Overlay -->
+    <header class="relative w-full h-[65vh] md:h-[75vh]">
+        <img src="image/ofimaticaBG.jpg"
+             class="absolute inset-0 w-full h-full object-cover opacity-60"
+             alt="Fondo Ofimática">
         <div class="absolute inset-0 hero-gradient"></div>
 
-        <!-- Contenido Hero -->
-        <div class="absolute bottom-0 left-0 w-full px-5 pb-10 z-20 flex flex-col justify-end h-full">
-            <div class="mb-2 flex items-center gap-2">
-                <span class="text-netflix-red font-black tracking-widest text-xs border border-netflix-red px-1 rounded-sm">N</span>
-                <span class="text-gray-300 text-xs tracking-widest font-bold uppercase">SERIE ORIGINAL</span>
+        <div class="absolute bottom-0 left-0 w-full px-5 pb-8 z-20 flex flex-col justify-end h-full">
+            <div class="mb-2 flex items-center gap-2 animate-fade-in">
+                <span class="text-netflix-red font-black text-[10px] border border-netflix-red px-1 rounded-sm">N</span>
+                <span class="text-gray-300 text-[10px] font-bold uppercase tracking-widest">HR INFORMATICA</span>
             </div>
-            
-            <h1 class="text-5xl font-black mb-1 leading-none text-shadow tracking-tight">
+
+            <h1 class="text-5xl font-black mb-2 leading-none text-shadow tracking-tight animate-slide-up">
                 COMPUTACIÓN<br><span class="text-3xl font-bold">BÁSICA</span>
             </h1>
 
-            <!-- UBICACIÓN RESALTADA -->
-            <div class="flex items-center gap-2 mb-3 mt-1 animate-pulse">
-                <i class="fa-solid fa-location-dot text-netflix-red text-xl"></i>
-                <span class="text-xl font-bold text-white uppercase tracking-wide text-shadow bg-black/30 px-2 rounded">
-                    Mayor Otaño
-                </span>
+            <div class="flex items-center gap-2 mb-4 animate-fade-in" style="animation-delay: 0.2s;">
+                <span class="text-green-400 font-bold text-sm">98% coincidencia</span>
+                <span class="bg-[#333] text-white text-[10px] px-1 border border-gray-500">ATP</span>
+                <span class="text-gray-300 text-sm">5 Módulos</span>
             </div>
 
-            <div class="flex items-center gap-3 text-sm text-gray-300 mb-4 font-semibold">
-                <span class="text-green-400 font-bold">99% de coincidencia</span>
-                <span>2025</span>
-                <span class="border border-gray-500 px-1 rounded text-xs">ATP</span>
-                <span>24 Clases + Bonus</span>
-            </div>
-
-            <p class="text-white text-sm mb-6 line-clamp-3 text-shadow max-w-md">
-                En un mundo digital, dominar la tecnología es poder. Aprende Windows, Internet, Word y las nuevas herramientas de IA en este curso intensivo de verano.
+            <p class="text-white text-sm mb-6 line-clamp-3 text-shadow max-w-md animate-fade-in" style="animation-delay: 0.3s;">
+                Domina Windows, Internet, Word y las nuevas herramientas de IA. Un curso flexible adaptado a tu ritmo en Mayor Otaño.
             </p>
 
-            <div class="flex gap-3">
+            <div class="flex gap-3 max-w-md animate-slide-up" style="animation-delay: 0.4s;">
                 <a href="#planes" class="flex-1 bg-white text-black font-bold py-2.5 rounded flex items-center justify-center gap-2 hover:bg-opacity-90 transition">
                     <i class="fa-solid fa-play"></i> Inscribirse
                 </a>
-                <a href="#episodios" class="flex-1 bg-gray-500/40 backdrop-blur-sm text-white font-bold py-2.5 rounded flex items-center justify-center gap-2 hover:bg-gray-500/60 transition">
+                <a href="#episodios" class="flex-1 bg-gray-500/40 backdrop-blur-md text-white font-bold py-2.5 rounded flex items-center justify-center gap-2 hover:bg-gray-500/60 transition">
                     <i class="fa-solid fa-circle-info"></i> Info
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- Sección Episodios (Módulos) -->
-    <section id="episodios" class="px-5 mt-4">
-        <h2 class="text-lg font-bold text-white mb-3">Episodios (Módulos)</h2>
-        
-        <div class="flex flex-col gap-4">
-            <!-- Episodio 1 -->
-            <div class="flex items-center gap-4 p-3 hover:bg-netflix-dark rounded-md transition cursor-pointer group">
-                <div class="relative min-w-[120px] h-20 bg-gray-800 rounded overflow-hidden">
-                    <div class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition">
-                        <i class="fa-solid fa-play text-white text-2xl opacity-80"></i>
-                    </div>
-                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=300&q=80" class="w-full h-full object-cover">
-                    <div class="absolute bottom-1 left-1 bg-red-600 text-white text-[10px] px-1 font-bold">E1</div>
-                </div>
-                <div>
-                    <h3 class="text-white font-bold text-sm">1. Intro a la Informática</h3>
-                    <p class="text-gray-400 text-xs mt-1 line-clamp-2">Conceptos fundamentales. Descubre cómo funciona tu equipo y pierde el miedo a la tecnología.</p>
-                </div>
-            </div>
-
-            <!-- Episodio 2 (Imagen Corregida: Red Global) -->
-            <div class="flex items-center gap-4 p-3 hover:bg-netflix-dark rounded-md transition cursor-pointer group">
-                <div class="relative min-w-[120px] h-20 bg-gray-800 rounded overflow-hidden">
-                    <div class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition">
-                        <i class="fa-solid fa-play text-white text-2xl opacity-80"></i>
-                    </div>
-                    <!-- Nueva imagen de Internet/Red -->
-                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=300&q=80" class="w-full h-full object-cover">
-                    <div class="absolute bottom-1 left-1 bg-red-600 text-white text-[10px] px-1 font-bold">E2</div>
-                </div>
-                <div>
-                    <h3 class="text-white font-bold text-sm">2. Mundo Internet</h3>
-                    <p class="text-gray-400 text-xs mt-1 line-clamp-2">Navegación segura, búsquedas efectivas y el poder de la nube al alcance de tu mano.</p>
-                </div>
-            </div>
-
-            <!-- Episodio 3 (Imagen Corregida: Escritura Profesional) -->
-            <div class="flex items-center gap-4 p-3 hover:bg-netflix-dark rounded-md transition cursor-pointer group">
-                <div class="relative min-w-[120px] h-20 bg-gray-800 rounded overflow-hidden">
-                    <div class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition">
-                        <i class="fa-solid fa-play text-white text-2xl opacity-80"></i>
-                    </div>
-                    <!-- Nueva imagen de redacción/Word -->
-                    <img src="https://images.unsplash.com/photo-1512314889357-e157c22f9856?auto=format&fit=crop&w=300&q=80" class="w-full h-full object-cover">
-                    <div class="absolute bottom-1 left-1 bg-red-600 text-white text-[10px] px-1 font-bold">E3</div>
-                </div>
-                <div>
-                    <h3 class="text-white font-bold text-sm">3. Master en Word</h3>
-                    <p class="text-gray-400 text-xs mt-1 line-clamp-2">Crea documentos profesionales. Transforma tu currículum y tus trabajos prácticos.</p>
-                </div>
-            </div>
-
-            <!-- NUEVO Episodio 4: Dactilografía -->
-            <div class="flex items-center gap-4 p-3 hover:bg-netflix-dark rounded-md transition cursor-pointer group">
-                <div class="relative min-w-[120px] h-20 bg-gray-800 rounded overflow-hidden">
-                    <div class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition">
-                        <i class="fa-solid fa-play text-white text-2xl opacity-80"></i>
-                    </div>
-                    <img src="https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&w=300&q=80" class="w-full h-full object-cover">
-                    <div class="absolute bottom-1 left-1 bg-red-600 text-white text-[10px] px-1 font-bold">E4</div>
-                </div>
-                <div>
-                    <h3 class="text-white font-bold text-sm">4. Dactilografía Veloz</h3>
-                    <p class="text-gray-400 text-xs mt-1 line-clamp-2">Deja de mirar el teclado. Aprende la técnica correcta para escribir con velocidad y precisión profesional.</p>
-                </div>
-            </div>
-
-            <!-- NUEVO Episodio 5: ChatGPT / IA -->
-            <div class="flex items-center gap-4 p-3 hover:bg-netflix-dark rounded-md transition cursor-pointer group">
-                <div class="relative min-w-[120px] h-20 bg-gray-800 rounded overflow-hidden">
-                    <div class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition">
-                        <i class="fa-solid fa-play text-white text-2xl opacity-80"></i>
-                    </div>
-                    <!-- Imagen de IA/Futuro -->
-                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=300&q=80" class="w-full h-full object-cover">
-                    <div class="absolute bottom-1 left-1 bg-red-600 text-white text-[10px] px-1 font-bold">E5</div>
-                </div>
-                <div>
-                    <span class="text-netflix-red text-[10px] font-bold uppercase tracking-wider">Bonus</span>
-                    <h3 class="text-white font-bold text-sm">5. Inteligencia Artificial (ChatGPT)</h3>
-                    <p class="text-gray-400 text-xs mt-1 line-clamp-2">El futuro es hoy. Aprende a usar ChatGPT para redactar, investigar y potenciar tu trabajo.</p>
-                </div>
-            </div>
-
-        </div>
+    <section id="episodios" class="px-5 mt-6">
+        <h2 class="text-lg font-bold text-white mb-4 border-l-4 border-netflix-red pl-2">Episodios</h2>
+        <div id="lista-modulos" class="flex flex-col gap-4 pb-10"></div>
     </section>
 
-    <!-- Sección Precios (Planes) -->
-    <section id="planes" class="px-5 mt-8 mb-10">
-        <h2 class="text-lg font-bold text-white mb-4">Planes disponibles</h2>
-        
-        <div class="flex flex-col md:flex-row gap-4">
-            
-            <!-- Plan Premium (3 Meses) - AHORA DESTACADO -->
-            <div class="border border-netflix-red bg-netflix-dark rounded-md p-5 relative overflow-hidden transform scale-105 shadow-2xl shadow-red-900/20 z-10 order-1 md:order-2">
-                <div class="absolute top-0 right-0 bg-netflix-red text-white text-[10px] px-2 py-1 font-bold uppercase">Más Popular</div>
+    <section id="planes" class="px-5 mt-8 mb-10 border-t border-gray-800 pt-8">
+        <h2 class="text-lg font-bold text-white mb-6 text-center md:text-left">Planes disponibles</h2>
+
+        <div class="flex flex-col md:flex-row gap-6 justify-center md:justify-start">
+
+            <div class="border border-netflix-red bg-[#181818] rounded-md p-5 relative overflow-hidden transform md:scale-105 shadow-[0_0_20px_rgba(229,9,20,0.4)] z-10 order-1 md:order-2 flex-1 max-w-md">
+                <div class="absolute top-0 right-0 bg-netflix-red text-white text-[10px] px-3 py-1 font-bold uppercase tracking-wider">Más Popular</div>
                 <h3 class="text-lg font-bold mb-1 text-netflix-red">Plan Premium</h3>
                 <p class="text-gray-400 text-xs mb-4">3 Meses • Intensivo</p>
-                
+
                 <div class="mb-4">
                      <span class="text-2xl font-bold">120.000 Gs.</span>
                      <span class="text-xs text-gray-400">/ cada 4 clases</span>
                 </div>
-                
-                <ul class="text-sm text-gray-300 space-y-2 mb-6">
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-netflix-red"></i> Inscripción: 150.000 Gs.</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-netflix-red"></i> Duración: 3 meses</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-netflix-red"></i> Opción Rápida</li>
+
+                <ul class="text-sm text-gray-300 space-y-3 mb-6">
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-check text-netflix-red"></i> Inscripción: 150.000 Gs.</li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-clock text-netflix-red"></i> Duración: 3 meses</li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-rocket text-netflix-red"></i> Opción Rápida</li>
                 </ul>
 
-                <a href="https://wa.me/595984835708?text=Hola,%20quiero%20el%20Plan%20Premium%20(3%20meses)" target="_blank" class="block w-full text-center bg-netflix-red text-white py-2 rounded font-bold hover:bg-red-700 transition shadow-lg">
+                <a href="https://wa.me/595984835708?text=Hola,%20quiero%20el%20Plan%20Premium%20(3%20meses)" target="_blank" class="block w-full text-center bg-netflix-red text-white py-3 rounded font-bold hover:bg-red-700 transition shadow-lg uppercase text-sm tracking-wide">
                     Seleccionar
                 </a>
             </div>
 
-            <!-- Plan Estándar (6 Meses) - AHORA NORMAL -->
-            <div class="border border-gray-700 bg-netflix-dark rounded-md p-5 relative overflow-hidden order-2 md:order-1 opacity-90 hover:opacity-100 transition">
-                <div class="absolute top-0 left-0 w-full h-1 bg-gray-500"></div>
-                <h3 class="text-lg font-bold mb-1">Plan Estándar</h3>
+            <div class="border border-gray-700 bg-[#181818] rounded-md p-5 relative overflow-hidden order-2 md:order-1 opacity-90 hover:opacity-100 transition flex-1 max-w-md">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gray-600"></div>
+                <h3 class="text-lg font-bold mb-1 text-white">Plan Estándar</h3>
                 <p class="text-gray-400 text-xs mb-4">6 Meses • Ritmo Normal</p>
-                
+
                 <div class="mb-4">
                      <span class="text-2xl font-bold">100.000 Gs.</span>
                      <span class="text-xs text-gray-400">/ mensual</span>
                 </div>
-                
-                <ul class="text-sm text-gray-300 space-y-2 mb-6">
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-netflix-red"></i> Inscripción: 150.000 Gs.</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-netflix-red"></i> Duración: 6 meses</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-netflix-red"></i> Modalidad Relax</li>
+
+                <ul class="text-sm text-gray-300 space-y-3 mb-6">
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-check text-gray-500"></i> Inscripción: 150.000 Gs.</li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-calendar text-gray-500"></i> Duración: 6 meses</li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-coffee text-gray-500"></i> Modalidad Relax</li>
                 </ul>
 
-                <a href="https://wa.me/595984835708?text=Hola,%20quiero%20el%20Plan%20Estándar%20(6%20meses)" target="_blank" class="block w-full text-center border border-white text-white py-2 rounded font-bold hover:bg-white hover:text-black transition">
+                <a href="https://wa.me/595984835708?text=Hola,%20quiero%20el%20Plan%20Estándar%20(6%20meses)" target="_blank" class="block w-full text-center border border-gray-500 text-white py-3 rounded font-bold hover:bg-white hover:text-black transition uppercase text-sm tracking-wide">
                     Seleccionar
                 </a>
             </div>
-
-        </div>
-    </section>
-    
-    <!-- Mi Lista / Footer -->
-    <section class="px-5 pb-24 text-center">
-        <p class="text-gray-500 text-xs mb-4">¿Preguntas? Llama al 0984 835 708</p>
-        <div class="flex justify-center gap-4 text-xs text-gray-500 underline">
-            <a href="#">Términos de uso</a>
-            <a href="#">Privacidad</a>
         </div>
     </section>
 
-    <!-- Botón Flotante (Estilo Netflix 'Descargar' o similar) -->
-    <div class="fixed bottom-0 left-0 w-full bg-[#121212] border-t border-gray-800 p-3 flex justify-around items-center z-50 md:hidden">
-        <a href="#episodios" class="flex flex-col items-center text-gray-400 hover:text-white">
-            <i class="fa-solid fa-house text-xl mb-1"></i>
-            <span class="text-[10px]">Inicio</span>
+    <footer class="w-full py-10 px-5 border-t border-gray-800 text-center">
+        <p class="text-gray-400 text-sm mb-4">¿Tienes dudas o necesitas asistencia?</p>
+        <a href="https://wa.me/595984835708?text=Hola,%20quisiera%20más%20información%20sobre%20el%20curso" 
+           target="_blank" 
+           class="inline-flex items-center justify-center gap-3 bg-[#25D366] text-white text-base font-bold py-3 px-8 rounded-full hover:bg-[#20bd5a] transition shadow-lg hover:scale-105 duration-200">
+            <i class="fa-brands fa-whatsapp text-2xl"></i>
+            Más Información
         </a>
-        <a href="#planes" class="flex flex-col items-center text-gray-400 hover:text-white">
-            <i class="fa-solid fa-layer-group text-xl mb-1"></i>
-            <span class="text-[10px]">Planes</span>
-        </a>
-        <a href="https://wa.me/595984835708?text=Hola,%20tengo%20una%20consulta" target="_blank" class="flex flex-col items-center text-white">
-            <div class="bg-white text-black rounded-full w-10 h-10 flex items-center justify-center -mt-6 border-4 border-[#121212] shadow-lg">
-                <i class="fa-brands fa-whatsapp text-xl"></i>
+        <p class="text-gray-600 text-xs mt-6">Mayor Otaño, Paraguay &copy; 2025 InfoFlix</p>
+    </footer>
+
+    <div id="modal-container" class="fixed inset-0 z-[100] hidden items-center justify-center" role="dialog" aria-modal="true">
+        <div id="modal-backdrop" class="absolute inset-0 bg-black/90 backdrop-blur-sm transition-opacity"></div>
+
+        <div class="relative w-full max-w-2xl mx-4 bg-[#181818] rounded-xl shadow-2xl overflow-hidden border border-gray-700 flex flex-col max-h-[90vh] animate-slide-up">
+
+             <button id="btn-close" class="absolute top-3 right-3 bg-black/50 hover:bg-white hover:text-black text-white rounded-full w-8 h-8 flex items-center justify-center transition z-20 cursor-pointer">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="relative h-48 md:h-60 shrink-0">
+                <img id="modal-img" src="" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#181818] via-transparent to-black/20"></div>
+
+                <div class="absolute bottom-4 left-4 right-4">
+                    <h2 id="modal-title" class="text-2xl md:text-3xl font-black text-white text-shadow leading-none mb-2"></h2>
+                    <div class="flex gap-2">
+                        <span class="bg-netflix-red text-white text-[10px] px-2 py-0.5 rounded font-bold uppercase">Incluido</span>
+                    </div>
+                </div>
             </div>
-            <span class="text-[10px] mt-1 font-bold">Chat</span>
-        </a>
-        <a href="#" class="flex flex-col items-center text-gray-400 hover:text-white">
-            <i class="fa-regular fa-user text-xl mb-1"></i>
-            <span class="text-[10px]">Perfil</span>
-        </a>
+
+            <div class="p-5 overflow-y-auto">
+                <p id="modal-desc" class="text-gray-300 text-sm mb-6 leading-relaxed"></p>
+
+                <div class="bg-[#2f2f2f]/50 p-4 rounded-lg border border-gray-700">
+                    <h4 class="text-white font-bold text-sm mb-3 uppercase tracking-wide">Lo que aprenderás:</h4>
+                    <ul id="modal-bullets" class="space-y-3">
+                        </ul>
+                </div>
+
+                <div class="mt-6 pt-4 border-t border-gray-700">
+                      <a href="https://wa.me/595984835708?text=Quiero%20inscribirme" class="w-full bg-white text-black font-bold py-3 rounded flex items-center justify-center gap-2 hover:bg-gray-200 transition">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> Consultar Inscripción
+                      </a>
+                </div>
+            </div>
+        </div>
     </div>
 
+    <script>
+        // DATOS DEL CURSO CON IMÁGENES LOCALES
+        const modulos = [
+            {
+                titulo: "1. Intro a la Informática",
+                descripcion: "Conceptos fundamentales para dominar tu PC desde cero. Descubre cómo funciona tu equipo y pierde el miedo.",
+                imagen: "image/mod1.jpg", 
+                puntos: ["Hardware vs Software: Entendiendo las piezas.", "Dominio del Escritorio y Archivos.", "Personalización básica."]
+            },
+            {
+                titulo: "2. Mundo Internet",
+                descripcion: "Conviértete en un experto de la web. Navegación segura, búsquedas efectivas y el poder de la nube.",
+                imagen: "image/mod2.jpg", 
+                puntos: ["Navegadores y Pestañas.", "Seguridad Online anti-estafas.", "Google Drive y la Nube."]
+            },
+            {
+                titulo: "3. Master en Word",
+                descripcion: "La herramienta de oficina esencial. Crea documentos profesionales y transforma tu currículum.",
+                imagen: "image/mod3.jpg", 
+                puntos: ["Formato de texto y estilos.", "Imágenes, Tablas y Gráficos.", "Exportación a PDF."]
+            },
+            {
+                titulo: "4. Dactilografía Veloz",
+                descripcion: "Deja de mirar el teclado. Aprende la técnica correcta para escribir con velocidad y precisión.",
+                imagen: "image/mod4.jpg", 
+                puntos: ["Posición correcta (Home Row).", "Memoria muscular.", "Ejercicios de velocidad."]
+            },
+            {
+                titulo: "5. Inteligencia Artificial",
+                descripcion: "Aprende a usar ChatGPT para redactar correos, investigar y potenciar tu trabajo diario.",
+                imagen: "image/mod5.jpg", 
+                puntos: ["Introducción a los Prompts.", "Uso ético para estudiantes.", "Corrección y redacción."]
+            }
+        ];
+
+        // REFERENCIAS DOM
+        const container = document.getElementById('lista-modulos');
+        const modal = document.getElementById('modal-container');
+        const modalBackdrop = document.getElementById('modal-backdrop');
+        const btnClose = document.getElementById('btn-close');
+
+        // FUNCIÓN PARA ABRIR MODAL
+        function openModal(index) {
+            const data = modulos[index];
+
+            // Llenar contenido
+            document.getElementById('modal-title').textContent = data.titulo;
+            document.getElementById('modal-desc').textContent = data.descripcion;
+            document.getElementById('modal-img').src = data.imagen;
+
+            const bulletsContainer = document.getElementById('modal-bullets');
+            bulletsContainer.innerHTML = '';
+            data.puntos.forEach(pt => {
+                bulletsContainer.innerHTML += `
+                    <li class="flex items-start gap-3 text-gray-300 text-sm">
+                        <i class="fa-solid fa-bolt text-netflix-red mt-1 text-xs"></i>
+                        <span>${pt}</span>
+                    </li>`;
+            });
+
+            // Mostrar: quitamos 'hidden', ponemos 'flex'
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden'; // Bloquear scroll fondo
+        }
+
+        // FUNCIÓN PARA CERRAR
+        function closeModal() {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+
+        // EVENT LISTENER DE CIERRE
+        modalBackdrop.addEventListener('click', closeModal);
+        btnClose.addEventListener('click', closeModal);
+
+        // GENERACIÓN DE LISTA
+        modulos.forEach((mod, index) => {
+            // Crear contenedor del item
+            const itemDiv = document.createElement('div');
+            itemDiv.className = "flex items-center gap-4 p-3 hover:bg-[#1f1f1f] rounded-md transition cursor-pointer group active:scale-95 duration-200";
+
+            // HTML interno del item
+            itemDiv.innerHTML = `
+                <div class="relative w-32 h-20 shrink-0 bg-gray-800 rounded overflow-hidden shadow-md">
+                    <img src="${mod.imagen}" alt="${mod.titulo}" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition">
+                        <i class="fa-regular fa-circle-play text-white text-2xl opacity-90 drop-shadow-md"></i>
+                    </div>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <h3 class="text-white font-bold text-sm md:text-base truncate pr-2 group-hover:text-netflix-red transition">${mod.titulo}</h3>
+                    <p class="text-gray-400 text-xs mt-1 line-clamp-2 leading-relaxed">${mod.descripcion}</p>
+                </div>
+            `;
+
+            // ASIGNAR CLIC
+            itemDiv.addEventListener('click', () => openModal(index));
+
+            // Agregar al DOM
+            container.appendChild(itemDiv);
+        });
+
+        // ESC KEY
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+    </script>
 </body>
 </html>
