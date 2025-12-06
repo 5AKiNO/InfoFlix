@@ -17,11 +17,16 @@
                     },
                     animation: {
                         'fade-in': 'fadeIn 0.3s ease-out',
-                        'slide-up': 'slideUp 0.4s ease-out'
+                        'slide-up': 'slideUp 0.4s ease-out',
+                        'pulse-glow': 'pulseGlow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                     },
                     keyframes: {
                         fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
-                        slideUp: { '0%': { transform: 'translateY(20px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } }
+                        slideUp: { '0%': { transform: 'translateY(20px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
+                        pulseGlow: {
+                            '0%, 100%': { opacity: '1', filter: 'brightness(1)' },
+                            '50%': { opacity: '1', filter: 'brightness(1.5) drop-shadow(0 0 5px rgba(255,255,255,0.5))' }
+                        },
                     }
                 }
             }
@@ -68,6 +73,10 @@
                 <span class="text-gray-300 text-sm">5 Módulos</span>
             </div>
 
+            <div class="flex items-center gap-2 mb-2 animate-fade-in" style="animation-delay: 0.25s;">
+                <i class="fa-solid fa-location-dot text-gray-400 text-sm"></i>
+                <span class="text-gray-200 text-sm font-semibold animate-pulse-glow">Mayor Otaño</span>
+            </div>
             <p class="text-white text-sm mb-6 line-clamp-3 text-shadow max-w-md animate-fade-in" style="animation-delay: 0.3s;">
                 Domina Windows, Internet, Word y las nuevas herramientas de IA. Un curso flexible adaptado a tu ritmo en Mayor Otaño.
             </p>
